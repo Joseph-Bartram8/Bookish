@@ -12,12 +12,11 @@ CREATE TABLE customers (
 	customer_id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
 	customer_name VARCHAR(255) NOT NULL
 )
-
-create table book_copies (
+DROP TABLE book_copies;
+CREATE TABLE book_copies (
 	copy_id INT NOT NULL PRIMARY KEY IDENTITY(1,1),
-	return_date date NOT NULL,
+	customer_name VARCHAR(50) NOT NULL,
 	book_id INT NOT NULL,
-	FOREIGN KEY (book_id) REFERENCES books(book_id),
-	customer_id INT NOT NULL,
-	FOREIGN KEY (book_id) REFERENCES customers(customer_id)
+
+	return_date date NOT NULL,
 )
